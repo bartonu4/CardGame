@@ -6,6 +6,11 @@ int main()
 {
    mcts *bot = new mcts;
    int iter=0, resBot =0, resPlayer =0, eql = 0, oldBot = 0 , oldPlayer = 0;
+   List<int> cardPlayerList;
+   for(int i = 1; i <= CARD_TO_PLAY; i++)
+   {
+       cardPlayerList.append(i);
+   }
 while(iter<CARD_TO_PLAY)
 {
     iter++;
@@ -19,9 +24,14 @@ while(iter<CARD_TO_PLAY)
    rand =  bot->random_gen->getNormal(bot->cardInDeck.size()-1);
    cardDeck = bot->cardInDeck.erase(rand);
    cout<<endl<<endl<<endl<<"Result player: "<<resPlayer<<"\t Result bot: "<<resBot<<"\n\nDeck card  =   "<<cardDeck<<endl;
-
-   cout<<"Enter your card \n";
-   cin>>cardPlayer;
+   cout << "Your card: \n";
+   for(int i = 0; i < cardPlayerList.size(); i++)
+   {
+       cout << " " << cardPlayerList.at(i);
+   }
+   cout << "\n Enter your card \n";
+   cin >> cardPlayer;
+   cardPlayerList.erase(cardPlayerList.indexOf(cardPlayer));
    cin.clear();
 
    if (iter==1)
