@@ -26,7 +26,7 @@ PlayerNode *mcts::selectNode(DeckNode *node)
 
 PlayerNode * mcts::simulation(DeckNode * node)
 {
-    int numOfSimulation = 10000;
+    int numOfSimulation = 5000;
     double wins=0;
     int index=0;
     if(node->childPlayers.size()<7)
